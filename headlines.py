@@ -13,27 +13,8 @@ RSS_FEEDS = {'bbc': 'http://feeds.bbci.co.uk/news/rss.xml',
 
 
 @app.route("/")
-@app.route("/bbc")
-def bbc():
-    """BBC Feed"""
-    return get_news("bbc")
-
-@app.route("/cnn")
-def cnn():
-    """CNN Feed"""
-    return get_news("cnn")
-
-@app.route("/iol")
-def iol():
-    """IOL Feed"""
-    return get_news("iol")
-
-@app.route("/fox")
-def fox(): 
-    """Fox Feed"""
-    return get_news("fox")
-
-def get_news(provider):
+@app.route("/<provider>")
+def get_news_from(provider="bbc"):
     """ Get the news from our feed as HMTL"""
 
     feed = feedparser.parse(RSS_FEEDS[provider])
@@ -42,7 +23,7 @@ def get_news(provider):
     html = html + get_lower_html()
     return html
 
- 
+
 def get_upper_html_for(provider):
     """Returns a string with the upper part my html page. """
 
