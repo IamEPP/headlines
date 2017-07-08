@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Headlines</title>
+    <meta charset="UTF-8">
+    <title>Headlines</title>
 </head>
 <body>
-	<h1>Headlines</h1>
-	{% for article in articles %}
-	<div>
-		<b> <a href="{{article.link}}"> {{article.title}}</a>
-		</b>
-		<br />
-		<i>{{article.published}}</i>
-		<br />
-		<p>{{article.summary| safe}}</p>
-		<br>
-		<hr>
-		<br>
-	</div>
-	{% endfor %}
+<h1>Headlines</h1>
+<form action="/" method="post">
+    <input type="text" name="provider" placeholder="search"/>
+    <input type="submit" value="Submit"/>
+</form>
+<br>
+<br>
+{% for article in articles %}
+    <div>
+        <b> <a href="{{article.link}}"> {{article.title}}</a>
+        </b>
+        <br/>
+        <i>{{article.published}}</i>
+        <br/>
+        <p>{{article.summary| safe}}</p>
+        <br>
+        <hr>
+        <br>
+    </div>
+{% endfor %}
 </body>
 </html>

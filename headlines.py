@@ -2,7 +2,6 @@
 import feedparser
 from flask import Flask, render_template, request
 
-
 app = Flask(__name__)
 
 BBC_FEED = "http://feeds.bbci.co.uk/news/rss.xml"
@@ -14,9 +13,8 @@ RSS_FEEDS = {'bbc': 'http://feeds.bbci.co.uk/news/rss.xml',
              'so': 'https://stackoverflow.com/feeds'}
 
 
-@app.route("/")
-@app.route("/<provider>")
-def get_news_from(): 
+@app.route("/", methods=['GET', 'POST'])
+def get_news_from():
     """ Get the news from our feed as HMTL"""
     provider = get_requested_provider()
     feed = feedparser.parse(RSS_FEEDS[provider])
@@ -25,7 +23,7 @@ def get_news_from():
 
 def get_requested_provider():
     """Get the feed provider from request """
-    query = request.args.get('provider')
+    query = request.form.get('provider')
     if not query or query.lower() not in RSS_FEEDS:
         return "bbc"
     else:
