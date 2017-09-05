@@ -1,4 +1,4 @@
-""" Flask Ninja Way. Headlines App. Flask By Example ch2  """
+""" Flask Way. Headlines App. Flask By Example ch2  """
 import datetime
 import feedparser
 from flask import Flask, render_template, request as flask_request, make_response
