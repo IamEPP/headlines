@@ -20,12 +20,12 @@ DEFAULTS = {"provider": "bbc",
             "currency_from": "GBP",
             "currency_to": "USD"}
 
-MY_WEATHER_API_KEY = "c7b3900a6c2311047a9a958f7e413e5d"
+MY_WEATHER_API_KEY = ""
 
 WEATHER_URI = ("http://api.openweathermap.org/data/2.5/weather?"
                "q={}&units=metric&appid={}")
 
-MY_CURRENCY_RATE_API_KEY = "260265bb918a42de9bb0772ae6ce76f4"
+MY_CURRENCY_RATE_API_KEY = ""
 
 CURRENCY_URL = "https://openexchangerates.org//api/latest.json?app_id={}".format(MY_CURRENCY_RATE_API_KEY)
 
